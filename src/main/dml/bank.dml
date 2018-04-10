@@ -5,6 +5,19 @@ class Bank {
 	String name;
 }
 
+class Account {
+	int iban;
+	int amount;	
+}
+
+class SavingsAccount extends Account {
+	
+}
+
+class WithdrawalAccount extends Account {
+	
+}
+
 relation DomainRootHasBankApplication {
 	.pt.ist.fenixframework.DomainRoot playsRole root {
 		multiplicity 1..1;
@@ -14,3 +27,23 @@ relation DomainRootHasBankApplication {
 	}
 }
 
+relation AccountHasBank {
+	
+	Bank playsRole bank {
+		multiplicity 1;
+	}
+	
+	Account playsRole account {
+		multiplicity 0..*;
+	}
+}
+
+relation SavingsAccountAndAccount {
+	Account playsRole account {
+		multiplicity 1;
+	}
+	
+	SavingsAccount playsRole savingsRole {
+		multiplicity 1;
+	}
+}

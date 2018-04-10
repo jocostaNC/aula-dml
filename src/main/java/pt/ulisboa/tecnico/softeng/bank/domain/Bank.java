@@ -25,5 +25,14 @@ public class Bank extends Bank_Base {
 		}
 		return null;
 	}
+	
+	public int totalBalance() {
+		int total = 0;
+		for(Account account : this.getAccountSet()) {
+			total += account.getAmount();
+		}
+		
+		return total;
+	}
 
 }
